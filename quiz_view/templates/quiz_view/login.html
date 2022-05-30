@@ -1,0 +1,31 @@
+{% extends 'quiz_view/base.html' %}
+
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'quiz_view/login.css' %}">
+{% endblock %}
+{% block body %}
+<h2> Login and make a quiz</h2>
+<div class="cont">
+  
+  <div class="form">
+    <form action="{% url 'login' %}" method="post">
+      {% csrf_token %}
+      <h1>Login</h1>
+      {% if messages %}
+        {% for message in messages %}
+            <p id="error">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+      <input type="text"
+             class="user"
+             placeholder="Username" name = "username"/>
+      <input type="password" 
+             class="pass"
+             placeholder="Password" name="password"/>
+      <button class="login">Login</button>
+      <small><a href="{% url 'register' %}">Dont have and account?</a></small>
+    </form>
+  </div>
+</div>
+{% endblock %}
