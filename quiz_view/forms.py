@@ -1,7 +1,8 @@
+from attr import fields
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-
+from .models import Quiz
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
     class Meta:

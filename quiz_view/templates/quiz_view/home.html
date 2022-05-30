@@ -1,4 +1,44 @@
 {% extends 'quiz_view/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'quiz_view/home.css' %}">
+{% endblock %}
 {% block body %}
-<h1>home</h1>
+<div class="form-modal">
+    
+  <div class="form-toggle">
+      <button id="login-toggle" onclick="toggleLogin()">Create Quiz</button>
+      <button id="signup-toggle" onclick="toggleSignup()">Quizes</button>
+  </div>
+
+  <div id="login-form">
+      <form method="post" action="{% url 'create_quiz' %}">
+        {% csrf_token %}
+          <input type="text" placeholder="Quiz Name" name="quizname"/>
+          <button type="submit" class="btn login">Create</button>
+          <hr/>
+
+      </form>
+  </div>
+
+  <div id="signup-form">
+    <form>
+      {% csrf_token %}
+      {% if quizes %}
+        {% for i in quizes %}
+        <p style="color:brown">{{ i.name }}</p>
+        <p><a href="{{ i.unique_url }}">{{ i.unique_url }}</a></p>
+        {% endfor %}
+      {% else %}
+        <p>No Quizes Found!</p>
+      {% endif %}
+  </div>
+</form>
+</div>
+
+{% endblock %}
+{% block js %}
+<script src="{% static 'quiz_view/jquery.min.js' %}"></script>
+<script src="{% static 'quiz_view/home.js' %}"></script>
+
 {% endblock %}

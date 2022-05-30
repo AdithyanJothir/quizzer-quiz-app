@@ -16,10 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from quiz_view import views as quiz_views
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('quiz_view.urls')),
     path('login/',quiz_views.login,name='login'),
     path('register/',quiz_views.register,name='register'),
+    path('create_quiz/',quiz_views.create_quiz,name='create_quiz'),
+    path('quiz/<url>',quiz_views.create_card,name='quiz'),
+    path('create_card/',quiz_views.create_card,name='create_card'),
+    path('logout/',LogoutView.as_view(template_name = 'quiz_view/login.html'),name='logout'),
+
 ]
