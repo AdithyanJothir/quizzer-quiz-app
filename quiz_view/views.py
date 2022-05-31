@@ -115,7 +115,7 @@ def create_card(request,url = "None"):
         
     else:
         user = request.user
-        url = f"http://127.0.0.1:8000/quiz/{url}"
+        url = f"http://adityanjothir.pythonanywhere.com/quiz/{url}"
         quiz = Quiz.objects.get(unique_url = url)
         no_of_cards = Quiz.objects.filter(unique_url = url).values('no_of_cards')
         no_of_cards = no_of_cards[0]['no_of_cards']
@@ -222,7 +222,7 @@ def gen_unique_url():
         url = ''.join(random.choices(string.ascii_uppercase + string.digits, k = s))   
         ob = Quiz.objects.filter(unique_url = url)
         if(not ob):
-            url = f"http://127.0.0.1:8000/quiz/{url}"
+            url = f"http://adityanjothir.pythonanywhere.com/quiz/{url}"
             return (url)
         elif count>10:
             s += 1

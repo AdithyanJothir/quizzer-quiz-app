@@ -51,7 +51,7 @@ $(document).ready(function() {
                 data: data
               })
               .done(function( msg ) {
-                window.location.href = "http://127.0.0.1:8000/answerers_list/";
+                window.location.href = "http://adityanjothir.pythonanywhere.com/answerers_list/";
               })
               .fail(function( msg ) {
                 alert( "Failed");
