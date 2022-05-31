@@ -15,8 +15,8 @@
     <tbody>
         {% for i in answeres %}
       <tr>
-        <td data-column="First Name">{{ i.name }}</td>
-        <td data-column="Last Name">{{ i.correct_answer }}</td>
+        <td data-column="Name" class="val">{{ i.name }}</td>
+        <td data-column="Percentage" class="val">{{ i.correct_answer }}%</td>
       </tr>
       {% endfor %}
     </tbody>

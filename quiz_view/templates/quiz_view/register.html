@@ -19,17 +19,17 @@
       {% endif %}
       <input type="text"
              class="user"
-             placeholder="Username" name = "username"/>
+             placeholder="Username" name = "username" required maxlength="20"/>
       <input type="text"
       class="user"
-      placeholder="Email" name = "email"/>
+      placeholder="Email" name = "email" required/>
       <input type="password" 
              class="pass"
              placeholder="Password" name="password1"/>
       <input type="password" 
       class="pass"
       placeholder="Confirm password" name="password2"/>
-      <button class="login">Login</button>
+      <button class="login">Sign Up</button>
       <small><a href="{% url 'register' %}">Dont have and account?</a></small>
     </form>
   </div>

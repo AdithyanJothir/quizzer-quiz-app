@@ -13,7 +13,7 @@
   <div id="login-form">
       <form method="post" action="{% url 'answerer' %}">
         {% csrf_token %}
-          <input type="text" placeholder="Enter Your Name" name="name" required/>
+          <input type="text" placeholder="Enter Your Name" name="name" required maxlength="15"/>
           <button type="submit" class="btn login">Start</button>
           <hr/>
 

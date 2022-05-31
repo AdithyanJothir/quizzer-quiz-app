@@ -22,6 +22,10 @@ td, th {
 	font-size: 18px;
 	}
 
+.val{
+    color : #dd4b39;
+}
+
 /* 
 Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px
@@ -45,6 +49,7 @@ only screen and (max-width: 760px),
 		position: absolute;
 		top: -9999px;
 		left: -9999px;
+        
 	}
 	
 	tr { border: 1px solid #ccc; }

@@ -14,7 +14,7 @@
   <div id="login-form">
       <form method="post" action="{% url 'create_quiz' %}">
         {% csrf_token %}
-          <input type="text" placeholder="Quiz Name" name="quizname"/>
+          <input type="text" placeholder="Quiz Name" name="quizname" required maxlength="10"/>
           <button type="submit" class="btn login">Create</button>
           {% for message in messages %}
           <p>{{ message }}</p>
