@@ -1,0 +1,42 @@
+{% extends 'quiz_view/base.html' %}
+{% load static %}
+{% block head %}
+
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+<link rel="stylesheet" href="{% static 'quiz_view/quiz.css' %}">
+{% endblock %}
+{% block body %}
+<form>
+  {% csrf_token %}
+<div class="demo">
+  <header class="demo__header"></header>
+  <div class="demo__content">
+    {% for key,value in fields.items %}
+    <div class="demo__card-cont">
+      <div class="demo__card">
+        <div class="demo__card__top brown">
+          <div class="demo__card__img"></div>
+          <p class="demo__card__name">{{ key }}</p>
+        </div>
+        <div class="demo__card__btm">
+          
+          <p class="demo__card__we">{{ value }}</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+      {% endfor %}
+    </div>
+    <input type = "hidden" id="length" value="{{ length }}">
+    <p class="demo__tip"> <-- Swipe --></p>
+  </div>
+</div>
+</form>
+
+{% endblock %}
+{% block js %}
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+<script src="{% static 'quiz_view/quiz.js' %}"></script>
+{% endblock %}

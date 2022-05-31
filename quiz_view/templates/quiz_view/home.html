@@ -16,6 +16,9 @@
         {% csrf_token %}
           <input type="text" placeholder="Quiz Name" name="quizname"/>
           <button type="submit" class="btn login">Create</button>
+          {% for message in messages %}
+          <p>{{ message }}</p>
+          {% endfor %}
           <hr/>
 
       </form>

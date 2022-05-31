@@ -26,6 +26,8 @@ urlpatterns = [
     path('create_quiz/',quiz_views.create_quiz,name='create_quiz'),
     path('quiz/<url>',quiz_views.create_card,name='quiz'),
     path('create_card/',quiz_views.create_card,name='create_card'),
+    path('answerer/',quiz_views.answerer,name='answerer'),
+    path('answer_quiz/',quiz_views.answer_quiz,name = 'answer_quiz'),
+    path('answerers_list/',quiz_views.answerers_list,name = 'answerers_list'),
     path('logout/',LogoutView.as_view(template_name = 'quiz_view/login.html'),name='logout'),
-
 ]

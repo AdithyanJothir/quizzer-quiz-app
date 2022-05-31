@@ -1,0 +1,29 @@
+{% extends 'quiz_view/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'quiz_view/home.css' %}">
+{% endblock %}
+{% block body %}
+<div class="form-modal">
+    
+  <div class="form-toggle">
+      <button id="login-toggle">Answer Quiz</button>
+  </div>
+
+  <div id="login-form">
+      <form method="post" action="{% url 'answerer' %}">
+        {% csrf_token %}
+          <input type="text" placeholder="Enter Your Name" name="name" required/>
+          <button type="submit" class="btn login">Start</button>
+          <hr/>
+
+      </form>
+  </div>
+
+
+{% endblock %}
+{% block js %}
+<script src="{% static 'quiz_view/jquery.min.js' %}"></script>
+<script src="{% static 'quiz_view/home.js' %}"></script>
+
+{% endblock %}

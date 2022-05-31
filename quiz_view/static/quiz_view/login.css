@@ -8,7 +8,7 @@
   font-family: 'Raleway', sans-serif;
 }
 
-body{ background: #3598dc; }
+body{ background: #dd4b39; }
 
 .cont{
   position: relative;
@@ -50,7 +50,7 @@ h1{
   color: #fff;
   cursor: pointer;
   margin-top: 20px;
-  background: #3598dc;
+  background: #dd4b39;
   transition: background 0.4s ease;
 }
 

@@ -1,0 +1,24 @@
+{% extends 'quiz_view/base.html' %}
+
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'quiz_view/final_list.css' %}">
+{% endblock %}
+{% block body %}
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in answeres %}
+      <tr>
+        <td data-column="First Name">{{ i.name }}</td>
+        <td data-column="Last Name">{{ i.correct_answer }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
