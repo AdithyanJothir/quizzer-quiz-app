@@ -8,11 +8,11 @@
 {% block body %}
 <form>
   {% csrf_token %}
-<div class="demo">
+<div class="demo" id="cards">
   <header class="demo__header"></header>
   <div class="demo__content">
-    {% for key,value in fields.items %}
     <div class="demo__card-cont">
+      {% for key,value in fields.items %}
       <div class="demo__card">
         <div class="demo__card__top brown">
           <div class="demo__card__img"></div>
@@ -31,6 +31,7 @@
     <input type = "hidden" id="length" value="{{ length }}">
     <p class="demo__tip"> NO < Swipe > YES</p>
   </div>
+</div>
 </div>
 </form>
 

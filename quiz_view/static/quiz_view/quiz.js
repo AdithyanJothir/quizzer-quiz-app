@@ -11,8 +11,12 @@ $(document).ready(function() {
   const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
   var len = document.getElementById("length").value;
   var numOfCards = parseInt(len);
+  const element = document.getElementById('cards');
+  
+ 
 
   function pullChange() {
+    if(cardsCounter<=numOfCards){
     animating = true;
     deg = pullDeltaX / 10;
     $card.css("transform", "translateX("+ pullDeltaX +"px) rotate("+ deg +"deg)");
@@ -22,14 +26,17 @@ $(document).ready(function() {
     var likeOpacity = (opacity <= 0) ? 0 : opacity;
     $cardReject.css("opacity", rejectOpacity);
     $cardLike.css("opacity", likeOpacity);
+    }
   };
 
   function release() {
+    if(cardsCounter<=numOfCards){
+
 
     if (pullDeltaX >= decisionVal) {
       $card.addClass("to-right");
       data[cardsCounter] = "True";
-    } else if (pullDeltaX <= -decisionVal) {
+    } else if (pullDeltaX <= -decisionVal ) {
       $card.addClass("to-left");
       data[cardsCounter] = "False";
     }
@@ -43,19 +50,19 @@ $(document).ready(function() {
         console.log(cardsCounter);
         console.log(len);
         if (cardsCounter === numOfCards) {
-              counter = 0;
+          
+              cardsCounter = 0;
+              element.style.visibility="hidden";
+              $card.addClass("inactive to-left to-right");
               $.ajax({
                 headers: {'X-CSRFToken': csrftoken},
                 method: "POST",
                 url: "/answer_quiz/",
                 data: data
-              })
-              .done(function( msg ) {
-                window.location.href = "http://adityanjothir.pythonanywhere.com/answerers_list/";
-              })
-              .fail(function( msg ) {
-                alert( "Failed");
-              })
+              });
+              $card.removeClass("inactive to-left to-right");
+              element.style.visibility="visible";
+              window.location.href = "http://adityanjothir.pythonanywhere.com/answerers_list/";
           $(".demo__card").removeClass("below");
         }
       }, 300);
@@ -72,7 +79,8 @@ $(document).ready(function() {
       pullDeltaX = 0;
       animating = false;
     }, 300);
-  };
+  }
+};
 
   $(document).on("mousedown touchstart", ".demo__card:not(.inactive)", function(e) {
     if (animating) return;
@@ -96,4 +104,5 @@ $(document).ready(function() {
     });
   });
 
-});
+}
+);

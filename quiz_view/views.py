@@ -179,8 +179,8 @@ def answer_quiz(request):
                     answerer_ob.save()    
                 except:
                     messages.error(request,'Answering Failed!')
-                    return redirect(answerers_list)
-                return redirect(answerers_list)
+                    return redirect('answerers_list')
+                return redirect('answerers_list')
             
                 
         else:
