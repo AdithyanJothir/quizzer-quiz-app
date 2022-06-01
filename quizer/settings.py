@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0ia3mn)(dz&_^uau$9j050d^536h+#3@kjaa+qlu*5&0d2xaiu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['adityanjothir.pythonanywhere.com']
 
 
 # Application definition
@@ -117,7 +117,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = '/home/adityanjothir/quizzer-quiz-app/static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
