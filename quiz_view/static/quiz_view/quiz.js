@@ -12,7 +12,7 @@ $(document).ready(function() {
   var len = document.getElementById("length").value;
   var numOfCards = parseInt(len);
   const element = document.getElementById('cards');
-  
+  element.style.visibility="visible";
  
 
   function pullChange() {
@@ -53,16 +53,18 @@ $(document).ready(function() {
           
               cardsCounter = 0;
               element.style.visibility="hidden";
-              $card.addClass("inactive to-left to-right");
+              
               $.ajax({
                 headers: {'X-CSRFToken': csrftoken},
                 method: "POST",
                 url: "/answer_quiz/",
                 data: data
+              }).done(function() {
+                window.location.href = "http://adityanjothir.pythonanywhere.com/answerers_list/";
               });
-              $card.removeClass("inactive to-left to-right");
-              element.style.visibility="visible";
-              window.location.href = "http://adityanjothir.pythonanywhere.com/answerers_list/";
+              
+              
+              
           $(".demo__card").removeClass("below");
         }
       }, 300);
